@@ -10,6 +10,9 @@ for (let i = 0; i < 16; i++) {
     const xboxes = document.createElement("div");
     xboxes.classList.add("xboxes");
     xboxes.setAttribute("style", "background-color: blue; width: 50px; height: 50px; margin: 5px; display: flex; justify-content: center; align-items: center; ");
+    xboxes.addEventListener("mouseover", function(e){
+        e.target.style.background = "green";
+    })
     rowContainer.appendChild(xboxes);
 }
 container.appendChild(rowContainer);
