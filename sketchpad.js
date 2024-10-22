@@ -1,12 +1,31 @@
 const container = document.querySelector("#container");
+let gridSize = 20;
 
-for (let j = 0; j < 16; j++) {
+
+document.getElementById("form").onsubmit = changeGridSize;
+
+function changeGridSize(e) {
+    e.preventDefault();
+    let size = e.target.gridsize.value;
+    gridSize = size;
+    console.log("Gridsize is: " +gridSize);
+   
+    container.innerHTML = '';
+
+    generateGrid(gridSize);
+}
+
+console.log("Gridsize is: " +gridSize);
+
+
+function generateGrid(gridSize){
+for (let j = 0; j < gridSize; j++) {
     const rowContainer = document.createElement("div");
     rowContainer.classList.add("row-container");
     rowContainer.style.display = "block"; 
    // rowContainer.style.flexWrap = "wrap";
 
-for (let i = 0; i < 16; i++) {
+for (let i = 0; i < gridSize; i++) {
     const xboxes = document.createElement("div");
     xboxes.classList.add("xboxes");
     xboxes.setAttribute("style", "background-color: blue; width: 50px; height: 50px; margin: 5px; display: flex; justify-content: center; align-items: center; ");
@@ -18,3 +37,7 @@ for (let i = 0; i < 16; i++) {
 container.appendChild(rowContainer);
 
 }
+}
+
+generateGrid(gridSize);
+
